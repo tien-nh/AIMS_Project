@@ -1,4 +1,6 @@
-package main;
+package hust.soict.dsai.aims.cart;
+
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 public class Cart {
 	public static int MAX_NUMBERS_ORDERED = 20 ;
@@ -49,6 +51,35 @@ public class Cart {
 		return sum ;
 	}
 	
+	public void printList(){
+		System.out.println("***********************CART***********************");
+		for( int i = 1 ; i <= this.qtyOrdered; i++){
+			
+			System.out.println("" + i + ". " + this.itemsOrdered[i-1]);
+		}
+		System.out.println("Total cost: " + this.totalCost());
+		System.out.println("**************************************************");
+	}
 	
-	
+	public void searchById(int id){
+		for (int i = 0 ; i < this.qtyOrdered ; i++ ) {
+			if(this.itemsOrdered[i].getId() == id ) {
+				System.out.println(this.itemsOrdered[i]);
+				return ;
+ 			}
+		}
+		System.out.println("Not found");
+		return ;
+	}
+
+	public void searchByTitle(String title) {
+		for (int i = 0 ; i < this.qtyOrdered ; i++ ) {
+			if(title.equals(this.itemsOrdered[i].getTitle())) {
+				System.out.println(this.itemsOrdered[i]);
+				return ;
+ 			}
+		}
+		System.out.println("Not found");
+		return ;
+	}
 }

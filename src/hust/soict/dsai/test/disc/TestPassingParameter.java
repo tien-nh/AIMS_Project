@@ -1,4 +1,7 @@
-package main;
+package hust.soict.dsai.test.disc;
+
+import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 public class TestPassingParameter {
 
@@ -9,8 +12,19 @@ public class TestPassingParameter {
 		swap(jungleDVD, cinderellaDVD);
 		System.out.println("jungle dvd title: " + jungleDVD.getTitle());
 		System.out.println("cinderella dvd title: " + cinderellaDVD.getTitle());
-		changeTitle(jungleDVD, cinderellaDVD.getTitle()) ;
+		// changeTitle(jungleDVD, cinderellaDVD.getTitle()) ;
 		System.out.println("jungle dvd title: " + jungleDVD.getTitle());
+		Cart abc = new Cart() ;
+		abc.addDigitalVideoDisc(jungleDVD);
+		abc.addDigitalVideoDisc(cinderellaDVD);
+		jungleDVD.setCost(20); cinderellaDVD.setCost(70);
+		abc.printList();
+		abc.searchById(0);
+		abc.searchById(1);
+		// System.out.println(jungleDVD.getId());
+		// System.out.println(cinderellaDVD.getId());
+		abc.searchByTitle("Cinderella");
+		abc.searchByTitle("null");
 	}
 	
 	public static void swap(Object o1 , Object o2) {
@@ -24,5 +38,4 @@ public class TestPassingParameter {
 		dvd.setTitle(title);
 		dvd = new DigitalVideoDisc(old) ;
 	}
-
 }
